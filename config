@@ -183,7 +183,6 @@
 # Tab = TAB key
 
 
-
 # Key to rule them all : windows or Alt key?
 
 # Mod4 = windows key on keyboard or super key
@@ -363,10 +362,12 @@ bindsym $mod+mod1+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -fn 'In
 # use xrandr and/or arandr to know the names of your monitors
 # use this line to tell which monitor is on the right
 # xrandr --output DVI-I-2 --right-of DVI-I-1 --auto
+bindsym $mod+o       exec xrandr | grep 'HDMI1 connected' && xrandr --output eDP1 --auto --output HDMI1 --auto --left-of eDP
+bindsym $mod+shift+o exec xrandr --output HDMI1 --off
 
 # my current setup
-set $firstMonitor DVI-I-1
-set $secondMonitor DVI-I-2
+set $firstMonitor eDP1
+set $secondMonitor HDMI1
 
 #set $firstMonitor LVDS1
 #set $secondMonitor LVDS1
@@ -477,6 +478,8 @@ exec variety
 # clipit
 exec clipit
 
+# start syndaemon
+exec syndaemon -i .5 -d -t -K
 
 # USER APPLICATIONS
 
@@ -499,7 +502,7 @@ exec clipit
 #exec --no-startup-id conky
 
 # terminal
-exec terminator
+exec terminator 
 
 ################### SHORTCUTS APPLICATIONS ######################
 #mod1 = ALT
@@ -670,6 +673,7 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioStop exec playerctl stop
+bindsym XF86AudioMicMute exec amixer -D pulse sset Capture toggle
 #bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause" 
 #bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next" 
 #bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
@@ -727,7 +731,6 @@ exec unclutter
 
 bar {
 
-    height 25
     workspace_buttons yes
     # font pango:DroidSansMono 13
     font pango:Noto Sans 14
@@ -763,8 +766,8 @@ status_command i3status -c ~/.config/i3/i3status.conf
     # conky configuration is in conky-i3statusbar
         
 #status_command ~/.config/i3/start-conky-i3statusbar.sh
-
    
+
 colors {
         background #2F2F2F
         statusline #eeeeee
@@ -946,10 +949,12 @@ mode "$mode_gaps_outer" {
 
 #bindsym $mod+Return exec gnome-terminal;focus
 #bindsym $mod+Return exec i3-sensible-terminal;focus
-bindsym $mod+Return exec terminator;focus
+bindsym $mod+Return exec terminator
 #bindsym $mod+Return exec mate-terminal;focus
 #bindsym $mod+Return exec xfce4-terminal;focus
 
+# Toggle terminator theme and start terminator
+bindsym $mod+mod1+Return exec ~/Code/Misc/scripts/terminator_theme_toggle.sh ; exec terminator
 
 bindsym control+mod1+t exec gnome-terminal; focus
 #bindsym control+mod1+t exec terminator;focus

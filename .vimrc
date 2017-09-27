@@ -36,6 +36,10 @@ syntax on
 " try to quit without saving, and swap files will keep you safe if your computer
 " crashes.
 set hidden
+
+set history=1000
+
+set clipboard=unnamedplus,autoselect
  
 " Note that not everyone likes working this way (with the hidden option).
 " Alternatives include using tabs or split windows instead of re-using the same
@@ -70,7 +74,9 @@ set hlsearch
 " Use case insensitive search, except when using capital letters
 set ignorecase
 set smartcase
- 
+set smarttab
+set smartindent
+
 " Allow backspacing over autoindent, line breaks and start of insert action
 set backspace=indent,eol,start
  
@@ -107,11 +113,15 @@ set mouse=a
  
 " Set the command window height to 2 lines, to avoid many cases of having to
 " "press <Enter> to continue"
-set cmdheight=2
+set cmdheight=1
  
 " Display line numbers on the left
 set number
- 
+
+set nowrap
+set showmode
+set tw=80
+
 " Quickly time out on keycodes, but never time out on mappings
 set notimeout ttimeout ttimeoutlen=200
  
@@ -126,9 +136,11 @@ set pastetoggle=<F11>
  
 " Indentation settings for using 4 spaces instead of tabs.
 " Do not change 'tabstop' from its default value of 8 with this setup.
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 set expandtab
+
+set incsearch
  
 " Indentation settings for using hard tabs for indent. Display tabs as
 " four characters wide.
@@ -148,5 +160,28 @@ map Y y$
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
- 
+
+set completeopt=menuone,menu,longest
+set wildignore+=*\\tmp\\*,*.swp,*.swo,*.zip,.git,.cabal-sandbox
+set wildmode=longest,list,full
+set completeopt+=longest
+
+set t_Co=256
+
+
+execute pathogen#infect()
+
+
+" Syntastic configuration
+map <Leader>s :SyntasticToggleMode<CR>
+
+set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatusLineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+
 "------------------------------------------------------------
