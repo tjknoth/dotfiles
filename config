@@ -854,10 +854,10 @@ for_window [class="Thunar"] focus
 #bindsym $mod+Shift+Return exec caja; workspace 8;focus
 bindsym $mod+Shift+Return exec thunar; workspace 8;focus
 
-bindsym control+mod1+b exec nemo --no-desktop;workspace 8;focus
-#bindsym control+mod1+b exec nautilus --no-desktop;workspace 8;focus
-#bindsym control+mod1+b exec caja;workspace 8;focus
-#bindsym control+mod1+b exec thunar;workspace 8;focus
+bindsym control+mod1+h exec nemo --no-desktop;workspace 8;focus
+#bindsym control+mod1+h exec nautilus --no-desktop;workspace 8;focus
+#bindsym control+mod1+h exec caja;workspace 8;focus
+#bindsym control+mod1+h exec thunar;workspace 8;focus
 
 
 # USER APPLICATIONS TO START AT BOOT
@@ -894,5 +894,5 @@ exec --no-startup-id nm-applet
 exec network-manager-applet
 
 # Screen brightness
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightnes
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightnes
