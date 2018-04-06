@@ -207,13 +207,13 @@ bindsym $mod+mod1+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -fn 'In
 # use xrandr and/or arandr to know the names of your monitors
 # use this line to tell which monitor is on the right
 # xrandr --output DVI-I-2 --right-of DVI-I-1 --auto
-bindsym $mod+o       exec xrandr | grep 'HDMI1 connected\|DP1-3 connected' && xrandr --output eDP1 --auto --output HDMI1 --auto --left-of eDP1 --output DP1-3 --auto --right-of eDP1
+bindsym $mod+o       exec xrandr | grep 'HDMI1 connected\|DP1-3 connected' && xrandr --output eDP1 --auto --output HDMI1 --auto --right-of eDP1 --output DP1-3 --auto --right-of eDP1
 bindsym $mod+shift+o exec xrandr --output HDMI1 --off --output DP1-3 --off
 
 # my current setup
 set $firstMonitor eDP1
-#set $secondMonitor HDMI1
-set $secondMonitor DP1-3
+set $secondMonitor HDMI1
+#set $secondMonitor DP1-3
 
 #set $firstMonitor LVDS1
 #set $secondMonitor LVDS1
@@ -229,14 +229,14 @@ set $secondMonitor DP1-3
 
 workspace 1 output $firstMonitor
 workspace 2 output $firstMonitor
-workspace 3 output $firstMonitor
-workspace 4 output $firstMonitor
-workspace 5 output $firstMonitor
+workspace 3 output $secondMonitor
+workspace 4 output $secondMonitor
+workspace 5 output $secondMonitor
 workspace 6 output $secondMonitor
 workspace 7 output $secondMonitor
 workspace 8 output $secondMonitor
 workspace 9 output $secondMonitor
-workspace 10 output $secondMonitor
+workspace 10 output $firstMonitor
 
 # switch to workspace
 bindsym $mod+1 workspace 1

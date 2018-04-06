@@ -28,6 +28,9 @@ use Env qw(BLOCK_INSTANCE);
 use constant DELAY => 50; # Delay in ms to let network-based players (spotify) reflect new data.
 use constant SPOTIFY_STR => 'spotify';
 
+use constant PLAYING_SYM => '⏸';
+use constant PAUSED_SYM  => '▶';
+
 my @metadata = ();
 my $player_arg = "";
 
@@ -128,9 +131,19 @@ sub playerctl {
     my $title = qx(playerctl $player_arg metadata title);
     exit(0) if $? || $title eq '(null)';
 
+    my $status = qx(playerctl $player_arg status);
+    exit(0) if $? || $status eq '(null)';
+    my $status_sym = '';
+    if (index($status, "Playing") != -1) {
+      $status_sym = PLAYING_SYM;
+    }
+    if (index($status, "Paused") != -1) {
+      $status_sym = PAUSED_SYM;
+    }
+
     push(@metadata, $title) if $title;
 
-    print(join(" - ", @metadata)) if @metadata;
+    print($status_sym . "  " . join(" - ", @metadata)) if @metadata;
 }
 
 sub rhythmbox {
