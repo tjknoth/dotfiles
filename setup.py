@@ -15,10 +15,25 @@ CONFIG_DST = ""
 
 HOME = os.path.expanduser("~")
 
+def cmdline():
+    import argparse
+    a = argparse.ArgumentParser()
+    a.add_argument("--configs", action="store", help="Config file path")
+    a.add_argument("--scripts", action="store", help="Script path")
+    return a.parse_args()
+
 def copy(filename, srcpath, dstpath):
     msg = "COPYING %s FROM %s TO %s" % (filename, srcpath, dstpath)
     print(msg)
     shutil.copyfile(srcpath + filename, dstpath + filename)
+
+a = cmdline()
+
+if a.configs:
+    CONFIG_DST = a.configs
+
+if a.scripts:
+    SCRIPT_DST = a.scripts
 
 # Check destinations are defined
 if (SCRIPT_DST == "" or CONFIG_DST == ""):
