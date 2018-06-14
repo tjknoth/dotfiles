@@ -328,7 +328,7 @@ exec clipit
 exec syndaemon -i .5 -d -t -K
 
 # Autolock
-exec --no-startup-id ~/Code/Misc/scripts/locker.sh
+# exec --no-startup-id ~/Code/Misc/scripts/locker.sh
 
 # USER APPLICATIONS
 

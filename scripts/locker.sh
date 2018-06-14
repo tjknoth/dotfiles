@@ -1,3 +1,3 @@
 #!/bin/bash
 
-exec xautolock -detectsleep -time 5 -locker "lock -- scrot -z" &
+exec xautolock -detectsleep -corners -000 -time 10 -locker "lock -n -- scrot -z" &
