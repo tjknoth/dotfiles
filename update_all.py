@@ -39,3 +39,4 @@ os.chdir(HOME)
 
 # Copy vimrc
 copy(".vimrc", "./", DESTINATION_PATH)
+copy(".bashrc", "./", DESTINATION_PATH)
