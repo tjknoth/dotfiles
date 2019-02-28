@@ -170,7 +170,6 @@ set t_Co=256
 
 execute pathogen#infect()
 
-
 " Syntastic configuration
 map <Leader>s :SyntasticToggleMode<CR>
 
@@ -191,35 +190,4 @@ map <silent> tq :GhcModType<CR>
 map <silent> te :GhcModTypeClear<CR>
 
 
-" supertab
-let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
-
-if has("gui_running")
-  imap <c-space> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
-else " no gui
-  if has("unix")
-    inoremap <Nul> <c-r>=SuperTablAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
-  endif
-endif
-
-let g:haskellmod_ompletion_ghc = 1
-autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-
-" nerdtree
-map <Leader>n :NERDTreeToggle<CR>
-
-" tabularize
-let g:haskell_tabular = 1
-
-vmap a= :Tabularize /=<CR>
-vmap a; :Tabularize /::<CR>
-vmap a- :Tabularize /-><CR>
-
-" ctrl-p
-map <silent> <Leader>t :CtrlP()<CR>
-noremap <leader>b<space> :CtrlPBuffer<cr>
-let g:ctrlp_custom_ignore = '\v<\/]dist$'
-
-" coquille
-au FileType coq call coquille#CoqideMapping()
 "------------------------------------------------------------
