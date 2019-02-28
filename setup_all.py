@@ -5,7 +5,7 @@ import os, os.path
 import platform
 import shutil 
 
-SCRIPT_SOURCE_PATH = "./scripts"
+SCRIPT_SOURCE_PATH = "./scripts/"
 I3_SOURCE_PATH = "./"
 I3_CONFIG_FILES = ["config", "i3blocks.conf", "i3status.conf"]
 
@@ -13,7 +13,7 @@ I3_CONFIG_FILES = ["config", "i3blocks.conf", "i3status.conf"]
 SCRIPT_DST = ""
 CONFIG_DST = ""
 
-HOME = os.path.expanduser("~")
+HOME = os.path.expanduser("~/")
 
 def cmdline():
     import argparse

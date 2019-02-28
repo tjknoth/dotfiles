@@ -6,7 +6,7 @@ import platform
 import shutil
 
 # Parameters
-SCRIPT_SOURCE_PATH = "./Code/Misc/scripts/"
+SCRIPT_SOURCE_PATH = "./Code/misc/scripts/"
 I3_CONFIG_SOURCE_PATH = "./.config/i3/"
 I3_CONFIG_FILES = ["config", "i3blocks.conf", "i3status.conf"]
 

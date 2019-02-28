@@ -328,7 +328,7 @@ exec clipit
 exec syndaemon -i .5 -d -t -K
 
 # Autolock
-# exec --no-startup-id ~/Code/Misc/scripts/locker.sh
+# exec --no-startup-id ~/Code/misc/scripts/locker.sh
 
 # USER APPLICATIONS
 
@@ -606,7 +606,7 @@ bar {
     # put hastag in front if not installed
 
 #status_command i3blocks
-status_command SCRIPT_DIR=~/Code/Misc/scripts i3blocks -c ~/.config/i3/i3blocks.conf
+status_command SCRIPT_DIR=~/Code/misc/scripts i3blocks -c ~/.config/i3/i3blocks.conf
 #status_command i3blocks -c ~/.config/i3/i3blocks.conf
 
 
@@ -809,7 +809,7 @@ bindsym $mod+Return exec terminator
 #bindsym $mod+Return exec xfce4-terminal;focus
 
 # Toggle terminator theme and start terminator
-bindsym $mod+mod1+Return exec ~/Code/Misc/scripts/terminator_theme_toggle.sh 
+bindsym $mod+mod1+Return exec ~/Code/misc/scripts/terminator_theme_toggle.sh 
 
 bindsym control+mod1+t exec gnome-terminal; focus
 #bindsym control+mod1+t exec terminator;focus
