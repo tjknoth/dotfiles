@@ -124,8 +124,7 @@ fi
 
 
 export TERMINATOR_THEME=solarized-dark
-export PATH=~/.cabal/bin:$PATH
-
+export PATH=~/.cabal/bin:~/.local/bin:$PATH
 alias chrome='google-chrome'
 alias firefox='~/firefox/firefox'
 alias zotero='~/bin/Zotero_linux-x86_64/zotero'

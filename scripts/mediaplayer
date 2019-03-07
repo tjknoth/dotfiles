@@ -28,7 +28,7 @@ use Env qw(BLOCK_INSTANCE);
 use constant DELAY => 50; # Delay in ms to let network-based players (spotify) reflect new data.
 use constant SPOTIFY_STR => 'spotify';
 
-use constant PLAYING_SYM => '⏸';
+use constant PLAYING_SYM => '▮▮';
 use constant PAUSED_SYM  => '▶';
 
 my @metadata = ();
@@ -114,7 +114,7 @@ sub mpd {
     my $data = qx(mpc current);
     if (not $data eq '') {
         buttons("mpd");
-        print($data);
+        print($data);#
         exit 0;
     }
 }
@@ -123,6 +123,8 @@ sub playerctl {
     buttons('playerctl');
 
     my $artist = qx(playerctl $player_arg metadata artist);
+    chomp $artist;
+
     # exit status will be nonzero when playerctl cannot find your player
     exit(0) if $? || $artist eq '(null)';
 
@@ -131,8 +133,11 @@ sub playerctl {
     my $title = qx(playerctl $player_arg metadata title);
     exit(0) if $? || $title eq '(null)';
 
+    push(@metadata, $title) if $title;
+
     my $status = qx(playerctl $player_arg status);
     exit(0) if $? || $status eq '(null)';
+
     my $status_sym = '';
     if (index($status, "Playing") != -1) {
       $status_sym = PLAYING_SYM;
@@ -140,8 +145,6 @@ sub playerctl {
     if (index($status, "Paused") != -1) {
       $status_sym = PAUSED_SYM;
     }
-
-    push(@metadata, $title) if $title;
 
     print($status_sym . "  " . join(" - ", @metadata)) if @metadata;
 }

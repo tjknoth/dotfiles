@@ -328,7 +328,7 @@ exec clipit
 exec syndaemon -i .5 -d -t -K
 
 # Autolock
-# exec --no-startup-id ~/Code/misc/scripts/locker.sh
+exec --no-startup-id ~/Code/misc/scripts/locker.sh
 
 # USER APPLICATIONS
 
@@ -585,7 +585,7 @@ exec unclutter
 bar {
     workspace_buttons yes
     # font pango:DroidSansMono 13
-    font pango:Source Sans Pro-10 10
+    font pango:Source Sans Pro-10 12
     #you can change the place via xrandr
     #output DVI-0
 
@@ -882,18 +882,18 @@ exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agen
 # update
 
 #Linux Mint
-exec mintupdate-launcher
+#exec mintupdate-launcher
 
 # Arch
 #exec pamac-tray
 
 # bluetooth
-exec blueberry-tray
-#exec --no-startup-id blueman-applet
+#exec blueberry-tray
+exec --no-startup-id blueman-applet
 
 # network
 #antergos
-exec --no-startup-id nm-applet
+exec --no-startup-id nm-applet &
 
 #linux mint
 exec network-manager-applet
