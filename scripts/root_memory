@@ -1,0 +1,11 @@
+#!/bin/sh
+
+awk -v '
+/^nvme0n1p4/ {
+  used=$3
+  total=$4
+}
+END {
+
+} 
+' df -h

@@ -167,7 +167,7 @@ mode "resize" {
 # choose your font
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # font -misc-fixed-bold-r-normal-*-15-140-75-75-c-90-iso10646-1
-# font pango:DejaVu Sans Mono 12
+font pango:DejaVu Sans Mono 13
 # font pango:DejaVu Sans Mono, Terminus Bold Semi-Condensed 11
 # font pango:Droid Sans Mono Dotted 12
 # font pango:hermit 12
@@ -183,7 +183,7 @@ mode "resize" {
 # font pango:Sans 13
 # font pango:Noto Mono Regular 13
 # font pango:DroidSansMono 13
-font pango:Noto Mono Regular 13
+# font pango:Noto Mono Regular 13
 
 
 ################### MENU ######################
@@ -328,7 +328,10 @@ exec clipit
 exec syndaemon -i .5 -d -t -K
 
 # Autolock
-exec --no-startup-id ~/Code/misc/scripts/locker.sh
+#exec --no-startup-id ~/Code/misc/scripts/locker.sh
+
+# background
+exec --no-startup-id /usr/bin/feh --bg-scale '/home/tristan/Pictures/canyon.jpg'
 
 # USER APPLICATIONS
 
@@ -352,8 +355,6 @@ exec --no-startup-id ~/Code/misc/scripts/locker.sh
 
 # terminal
 exec terminator 
-
-
 
 ################### SHORTCUTS APPLICATIONS ######################
 #mod1 = ALT
@@ -584,8 +585,8 @@ exec unclutter
 
 bar {
     workspace_buttons yes
-    # font pango:DroidSansMono 13
-    font pango:Source Sans Pro-10 12
+    font pango:DroidSansMono 14
+    #font pango:Source Sans Pro-10 12
     #you can change the place via xrandr
     #output DVI-0
 
@@ -899,5 +900,8 @@ exec --no-startup-id nm-applet &
 exec network-manager-applet
 
 # Screen brightness
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightnes
+#bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
+#bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightnes
+
+bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightnes
