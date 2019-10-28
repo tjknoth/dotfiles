@@ -176,6 +176,8 @@ map <Leader>s :SyntasticToggleMode<CR>
 set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatusLineFlag()}
 set statusline+=%*
+set statusline+=%=
+set statusline+=%t\ %p%%\ %l:%c
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
