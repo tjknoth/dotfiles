@@ -8,6 +8,9 @@
 " have made, as well as sanely reset options when re-sourcing .vimrc
 set nocompatible
  
+execute pathogen#infect()
+
+
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
 " and for plugins that are filetype specific.
@@ -168,8 +171,6 @@ set completeopt+=longest
 
 set t_Co=256
 
-execute pathogen#infect()
-
 " Syntastic configuration
 map <Leader>s :SyntasticToggleMode<CR>
 
@@ -191,5 +192,16 @@ map <silent> ts :GhcModSplitFunCase<CR>
 map <silent> tq :GhcModType<CR>
 map <silent> te :GhcModTypeClear<CR>
 
+" haskell-vim
+let g:haskell_classic_highlighting = 1
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 
+
+set fileformat=unix
 "------------------------------------------------------------

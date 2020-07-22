@@ -207,12 +207,12 @@ bindsym $mod+mod1+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -fn 'In
 # use xrandr and/or arandr to know the names of your monitors
 # use this line to tell which monitor is on the right
 # xrandr --output DVI-I-2 --right-of DVI-I-1 --auto
-bindsym $mod+o       exec xrandr | grep 'HDMI1 connected\|DP1-3 connected' && xrandr --output eDP1 --auto --output HDMI1 --auto --left-of eDP1 --output DP1-3 --auto --right-of eDP1
-bindsym $mod+shift+o exec xrandr --output HDMI1 --off --output DP1-3 --off
+bindsym $mod+o       exec xrandr | grep 'HDMI-1 connected\|DP1-3 connected' && xrandr --output eDP-1 --auto --output HDMI-1 --auto --left-of eDP-1 --output DP1-3 --auto --right-of eDP-1
+bindsym $mod+shift+o exec xrandr --output HDMI-1 --off --output DP1-3 --off
 
 # my current setup
-set $firstMonitor eDP1
-set $secondMonitor HDMI1
+set $firstMonitor eDP-1
+set $secondMonitor HDMI-1
 #set $secondMonitor DP1-3
 
 #set $firstMonitor LVDS1
@@ -291,7 +291,7 @@ assign [class="Firefox|Vivaldi-stable|Opera"]         → 1
 assign [class="sublime-text|sublime_text|Sublime_text|subl|Subl|subl3|Subl3"]       → 2
 assign [class="Xed|xed|Brackets"]                                                   → 2
 assign [class="Inkscape"]                                                           → 3
-assign [class="Gimp"]                                                               → 4
+#assign [class="Gimp"]                                                               → 4
 assign [class="ristretto|Ristretto|shotwell|Shotwell|Xviewer"]                      → 5
 assign [class="Meld"]                                                               → 5
 assign [class="feh|gthumb|Gthumb|eog|Eog|Pinta|pixeluvo|Pixeluvo"]                  → 5
