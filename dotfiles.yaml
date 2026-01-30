@@ -1,0 +1,7 @@
+# Dotfiles manifest - maps repo files to system locations
+
+dotfiles:
+  .tmux.conf: ~/.tmux.conf
+  # Add more dotfiles here as needed:
+  # .gitconfig: ~/.gitconfig
+  # .vimrc: ~/.vimrc
