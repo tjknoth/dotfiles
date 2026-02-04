@@ -8,6 +8,10 @@ set fileformat=unix
 set hidden
 set history=1000
 set undofile
+set undodir=~/.vim/undo//
+if !isdirectory(expand('~/.vim/undo'))
+  call mkdir(expand('~/.vim/undo'), 'p', 0700)
+endif
 
 " UI
 set number relativenumber
