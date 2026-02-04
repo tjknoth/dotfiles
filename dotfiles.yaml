@@ -2,6 +2,7 @@
 
 dotfiles:
   .tmux.conf: ~/.tmux.conf
-  # Add more dotfiles here as needed:
-  # .gitconfig: ~/.gitconfig
-  # .vimrc: ~/.vimrc
+  .vimrc: ~/.vimrc
+  .zshrc: ~/.zshrc
+  .gitconfig: ~/.gitconfig
+  # Add more dotfiles below as needed:
