@@ -1,6 +1,9 @@
 # Auto-attach to tmux (before p10k instant prompt to avoid console output warning)
+# Skip if 'main' session already has an attached client (e.g. new tab)
 if [[ -z "$TMUX" ]] && command -v tmux &>/dev/null && [[ -t 0 ]]; then
-  exec tmux new-session -A -s main
+  if ! tmux has-session -t main 2>/dev/null || [[ -z "$(tmux list-clients -t main)" ]]; then
+    exec tmux new-session -A -s main
+  fi
 fi
 
 # P10k instant prompt
