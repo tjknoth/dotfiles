@@ -78,3 +78,15 @@ nnoremap <C-l> <C-w>l
 nnoremap <leader>bn :bnext<CR>
 nnoremap <leader>bp :bprevious<CR>
 nnoremap <leader>bd :bdelete<CR>
+
+" Highlight trailing whitespace
+highlight TrailingWhitespace ctermbg=red guibg=red
+match TrailingWhitespace /\s\+$/
+
+" Strip trailing whitespace
+fun! StripTrailingWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+nnoremap <leader>sw :call StripTrailingWhitespace()<CR>
